@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root "pages#home"
   get "about" => "pages#about"
   get "menu" => "pages#menu"
   get "gallery" => "pages#gallery"
+
+
+  devise_scope :admin do get '/admins/sign_out' => 'devise/sessions#destroy' end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
