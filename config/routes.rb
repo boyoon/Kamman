@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :items
+
+  resources :menus
+
   devise_for :admins
   root "pages#home"
   get "about" => "pages#about"
