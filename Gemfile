@@ -10,7 +10,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass'
 gem 'execjs'
-gem 'coffee-script-source', '1.10.0'
 gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '~>1.16.1'
