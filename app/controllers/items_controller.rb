@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @menus = Menu.all
     respond_with(@items)
   end
 
@@ -42,6 +43,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:items, :description, :cost)
+      params.require(:item).permit(:items, :description, :cost, :category)
     end
 end

@@ -3,9 +3,10 @@ class PagesController < ApplicationController
   end
 
   def menu
+    @menus = Menu.all
+    @items = Item.all
   end
 
-  
   def about
   end
 end

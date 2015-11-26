@@ -5,7 +5,13 @@ class MenusController < ApplicationController
 
   def index
     @menus = Menu.all
+    @items = Item.all
     respond_with(@menus)
+  end
+
+  def menu
+    @menu = Menu.all
+    @items = Item.all
   end
 
   def show
