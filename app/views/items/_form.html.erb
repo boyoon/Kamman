@@ -1,4 +1,7 @@
+
+
 <%= form_for(@item) do |f| %>
+
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,7 +13,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :items %><br>
     <%= f.text_field :items %>
@@ -27,7 +29,11 @@
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary outline">Create</button>
+  </div>
   </div>
 <% end %>
+

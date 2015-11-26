@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   def menu
     @menus = Menu.all
     @items = Item.all
+    @item = Item.new
+    @menu = Menu.new
   end
 
   def about

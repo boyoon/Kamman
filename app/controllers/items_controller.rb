@@ -6,16 +6,14 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @menus = Menu.all
-    respond_with(@items)
+
   end
 
   def show
-    respond_with(@item)
   end
 
   def new
     @item = Item.new
-    respond_with(@item)
   end
 
   def edit
@@ -24,17 +22,17 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    respond_with(@item)
+    redirect_to("/menu")
   end
 
   def update
     @item.update(item_params)
-    respond_with(@item)
+    redirect_to("/menu")
   end
 
   def destroy
     @item.destroy
-    respond_with(@item)
+    redirect_to(:back)
   end
 
   private

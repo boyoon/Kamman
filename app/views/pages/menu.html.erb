@@ -1,30 +1,33 @@
 
 
+<%= render "menuModal"%>
+<%= render "itemModal"%>
 
-<% @menus.each do |menu| %>
-	<table>
-	  <thead>
-	    <tr>
-	      <th><%= menu.name %></th>
-	      <td><%= link_to 'Show', menu %></td>
-          <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-          <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	      <th colspan="1"></th>
-	    </tr>
-	  </thead>
+
+<div class = "spacing">
+	<table class=" table-condensed">
+		<% @menus.each do |menu| %>
+		  <thead>
+				<tr>
+			 	 <th><font size="4"><%= menu.name %></font></th>
+			 	 <th></th>
+			 	 <th><%= link_to 'Edit', edit_menu_path(menu)%></th>
+			 	 <th><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></th>
+			 	<th colspan="1"></th>
+				</tr>
+		 	</thead>
+		 	<tbody>
+				<% @items.each do |item| %>
+					<tr>
+						<%if menu.name == item.category %>
+							<td><%= item.items %></td>
+							<td>$<%= item.cost %></td>
+							<td><%= link_to 'Edit', edit_item_path(item) %></td>
+							<td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			  		<% end %>
+					<% end %>
+				</tr>
+			</tbody>
+		<%end %>
 	</table>
-	<% @items.each do |item| %>
-	<%if menu.name == item.category %>
-		<p>
-		<%= item.items %>
-		$<%= item.cost %>
-		<td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </p>
-	<% end %>
-	<% end %>
-<%end %>
-
-<%= link_to 'New Menu', new_menu_path %>
-<%= link_to 'New Item', new_item_path %>
+</div>

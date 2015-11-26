@@ -29,17 +29,17 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     @menu.save
-    respond_with(@menu)
+    redirect_to("/menu")
   end
 
   def update
     @menu.update(menu_params)
-    respond_with(@menu)
+    redirect_to("/menu")
   end
 
   def destroy
     @menu.destroy
-    respond_with(@menu)
+    redirect_to(:back)
   end
 
   private
